@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+
+header {
+  background-color: #b7282e;
+}
+
+.btn-h {
+  background-color: #b7282e;
+  color: #fbfaf5;
+}
+
+.btn-h:hover {
+  background-color: #fbfaf5;
+  color: #b7282e;
+}
+
+body{
+  background-color: #fbfaf5;
+}
+
+footer {
+  background-color: #b7282e;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.bg-about {
+  border: dashed 2px #f19072;
+}
