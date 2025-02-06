@@ -25,17 +25,43 @@ body{
 
 footer {
   background-color: #b7282e;
-  position: sticky;
+  position: absolute;
   width: 100%;
-  margin-top: auto;
+  bottom: 0;
 }
 
 .bg-about {
   border: dashed 2px #f19072;
 }
 
-.wrap{
-  display: flex;
-  flex-direction: column;
+.wrap {
   min-height: 100vh;
+  position: relative;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+
+.text-user {
+  background: linear-gradient(transparent 50%, #f6bfbc 50%);
+  padding: 0 0.1em;
+}
+
+.btn-user {
+  color: #fff;
+  background: #b7282e;
+  border-radius: 100vh;
+  width: 20em;
+}
+
+.btn-user:hover {
+  background-color: #cd353d;
+  color: #fff;
+}
+
+.link-user {
+  color: #b94047;
+}
+
+.link-user:hover {
+  color: #b7282e;
 }

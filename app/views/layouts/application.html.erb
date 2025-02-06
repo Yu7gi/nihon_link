@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/677a0f7eeb.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', 'add_styles' %>
@@ -20,15 +21,38 @@
           </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
-                <li class="nav-item mr-3">
-                  <%= link_to 'About', about_path, class: 'btn btn-h' %>
-                </li>
-                <li class="nav-item mr-3">
-                  <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-h' %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Log In', new_user_session_path, class: 'btn btn-h' %>
-                </li>
+                <% if user_signed_in? %>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'My page', about_path, class: 'btn btn-h' %>
+                  </li>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'About', about_path, class: 'btn btn-h' %>
+                  </li>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'Posts', about_path, class: 'btn btn-h' %>
+                  </li>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'Users', about_path, class: 'btn btn-h' %>
+                  </li>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'Log out', destroy_user_session_path, class: 'btn btn-h', method: :delete %>
+                  </li>
+                  <li class="nav-item mr-3">
+                    <%= link_to about_path, class: 'btn btn-h' do %>
+                      <i class="fa-solid fa-bell"></i>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'About', about_path, class: 'btn btn-h' %>
+                  </li>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-h' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'Log In', new_user_session_path, class: 'btn btn-h' %>
+                  </li>
+                <% end %>
               </ul>
           </div>
         </div>
