@@ -65,3 +65,32 @@ footer {
 .link-user:hover {
   color: #b7282e;
 }
+
+.my-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 700px;
+}
+
+.my-table th, .my-table td {
+  border: 2px solid #fff;
+  background-color: #ffcecc;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.my-table th {
+  background-color: #ca676c;
+  color: #fff;
+  text-align: center;
+  width: 20%;
+  min-width: 3em;
+}
+
+.my-table td {
+  min-width: 15em;
+}
+
+.btn-edit {
+  width: 10em;
+}

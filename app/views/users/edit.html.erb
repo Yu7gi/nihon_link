@@ -1,0 +1,60 @@
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="row">
+    <div class="col">
+
+      <div class="row mt-5 d-flex justify-content-center">
+        <h2 class="text-user">User edit</h2>
+      </div>
+
+      <%= form_with model: @user do |f| %>
+        <div class="form-group row mt-4">
+          <label for="image" class="col-3 mr-4">Profile image</label>
+          <div class="col-8 my-auto">
+            <%= f.file_field :profile_image, accept: "image/*", class: "form-control-file" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-3 my-auto mr-4">
+            <%= f.label :name %>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row mt-4">
+          <div class="col-3 mr-4 my-auto">
+            <%= f.label :introduction %>
+          </div>
+          <div class="col-8">
+            <%= f.text_area :introduction, class: "form-control" %>
+          </div>
+        </div>
+    
+        <div class="form-group row mt-4">
+          <div class="col-3 mr-4">
+            <%= f.label :native %>language
+          </div>
+          <div class="col-8 my-auto">
+            <%= f.text_field :native, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row mt-4">
+          <div class="col-3 mr-4 my-auto">
+            <%= f.label :email %>
+          </div>
+          <div class="col-8">
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+        </div>
+      
+        <div class="row d-flex justify-content-center mt-5">
+          <button type="submit" class="btn btn-success btn-edit">Save Edits</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
