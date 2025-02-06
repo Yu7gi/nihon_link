@@ -25,11 +25,17 @@ body{
 
 footer {
   background-color: #b7282e;
-  position: fixed;
+  position: sticky;
   width: 100%;
-  bottom: 0;
+  margin-top: auto;
 }
 
 .bg-about {
   border: dashed 2px #f19072;
+}
+
+.wrap{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
