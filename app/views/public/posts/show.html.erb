@@ -1,2 +1,33 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    
+      <div class="mt-5 col-2 text-center">
+        <h2 class="text-user">Title</h2><br>
+      </div>
+      <div class="col-6">
+        <h4 class="border-bottom pb-2"><%= @post.title %></h4>
+
+        <div class="mt-5 mb-3">
+          <h5 class="border-bottom pb-3"><%= @post.body %></h5>
+        </div>
+
+        <div class="mb-5">
+          <i class="fa-regular fa-flag"></i>　<%= @post.genre.name %>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+          <%= link_to user_path(@post.user.id) do %>
+            <% if @post.user.profile_image.attached? %>
+              <%= image_tag url_for(@post.user.profile_image), size: "100x100" %>
+            <% else %>
+              <%= image_tag 'icon_user_5.png', size: "100x100" %>
+            <% end %>
+            <br>
+            <div class="text-dark text-center"><%= @post.user.name %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
