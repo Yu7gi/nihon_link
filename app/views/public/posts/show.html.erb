@@ -12,8 +12,18 @@
           <h5 class="border-bottom pb-3"><%= @post.body %></h5>
         </div>
 
-        <div class="mb-5">
-          <i class="fa-regular fa-flag"></i>　<%= @post.genre.name %>
+        <div class="mb-5 row">
+          <div class="ml-3">
+            <i class="fa-regular fa-flag"></i>　<%= @post.genre.name %>
+          </div>
+          <div class="col-10 d-flex justify-content-end">
+            <% if @post.user == current_user %>
+              <div class="mr-3">
+                <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-success" %>
+              </div>
+              <%= link_to "Destroy", post_path(@post), class: "btn btn-danger", method: :delete, "data-confirm" => "Are you sure you want to permanently delete this post?" %>
+            <% end %>
+          </div>
         </div>
 
         <div class="row d-flex justify-content-center">
