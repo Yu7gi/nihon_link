@@ -18,11 +18,11 @@
         </div>
       <% end %>
 
-      <div class="d-flex justify-content-center">
+      <div class="mt-4 d-flex justify-content-center">
       <table class="table col-6">
-        <thead>
+        <thead class="table-g">
           <tr>
-            <th>ジャンル名</th>
+            <th class="col-7 text-white">ジャンル名</th>
             <th></th>
           </tr>
         </thead>
@@ -30,7 +30,7 @@
           <% @genres.each do |genre| %>
             <tr>
               <td><h4><strong><%= genre.name %></strong></h4></td>
-              <td class="col-3"><%= link_to "編集", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
+              <td><%= link_to "編集", edit_admin_genre_path(genre.id), class: "btn btn-success mr-2" %><span><%= link_to "削除", admin_genre_path(genre.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
             </tr>
           <% end %>
         </tbody>

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   #管理者側ルーティング設定
   namespace :admin do
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
 
   #会員側ルーティング設定
