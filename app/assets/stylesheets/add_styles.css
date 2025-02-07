@@ -91,6 +91,14 @@ footer {
   min-width: 15em;
 }
 
-.btn-edit {
+.btn-custom {
   width: 10em;
+}
+
+.form-post {
+  min-width: 15em;
+}
+
+.form-b {
+  min-height: 10em;
 }
