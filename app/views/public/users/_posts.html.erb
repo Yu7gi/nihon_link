@@ -1,0 +1,14 @@
+<table class="table table-u">
+  <% @posts.each do |post| %>
+    <tr>
+      <td>
+        <%= link_to post_path(post.id) do %>
+          <h5><strong><%= post.title %></strong></h5>
+        <% end %>
+      </td>
+      <td>
+        <i class="fa-regular fa-flag"></i>　<%= post.genre.name %>
+      </td>
+    </tr>
+  <% end %>
+</table>

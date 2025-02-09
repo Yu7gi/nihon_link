@@ -88,7 +88,7 @@ footer {
 }
 
 .my-table td {
-  min-width: 15em;
+  min-width: 10em;
 }
 
 .btn-custom {
@@ -105,4 +105,12 @@ footer {
 
 .table-g {
   background-color: #cb565b;
+}
+
+.table-u {
+  min-height: 20em;
+}
+
+.field_with_errors {
+  display: contents;
 }

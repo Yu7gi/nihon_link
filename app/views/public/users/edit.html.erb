@@ -1,9 +1,13 @@
 <div class="container d-flex align-items-center justify-content-center">
-  <div class="row">
-    <div class="col">
+  <div class="row  d-flex align-items-center justify-content-center">
+    <div class="col-12">
 
       <div class="row mt-5 d-flex justify-content-center">
         <h2 class="text-user">User edit</h2>
+      </div>
+
+      <div  class=" mt-4 d-flex align-items-center justify-content-center">
+        <%= render "public/shared/error_messages", model: @user %>
       </div>
 
       <%= form_with model: @user do |f| %>
@@ -50,7 +54,7 @@
           </div>
         </div>
       
-        <div class="row d-flex justify-content-center mt-5">
+        <div class="row d-flex align-items-center justify-content-center mt-5">
           <button type="submit" class="btn btn-success btn-custom">Save Edits</button>
         </div>
       <% end %>

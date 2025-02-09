@@ -6,6 +6,10 @@
         <h2 class="text-user">Edit post</h2>
       </div>
 
+      <div  class=" mt-4 d-flex align-items-center justify-content-center">
+        <%= render "public/shared/error_messages", model: @post %>
+      </div>
+
       <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
         <div class="form-group row mt-5">
           <div class="col-2 my-auto mr-4">
@@ -35,7 +39,7 @@
         </div>
       
         <div class="row d-flex justify-content-center mt-5">
-          <button type="submit" class="btn btn-success btn-custom">Create post</button>
+          <button type="submit" class="btn btn-success btn-custom">Edit post</button>
         </div>
       <% end %>
     </div>

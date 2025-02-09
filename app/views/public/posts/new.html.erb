@@ -6,6 +6,10 @@
         <h2 class="text-user">Create new post</h2>
       </div>
 
+      <div  class=" mt-4 d-flex align-items-center justify-content-center">
+        <%= render "public/shared/error_messages", model: @post %>
+      </div>
+
       <%= form_with model: @post do |f| %>
         <div class="form-group row mt-5">
           <div class="col-2 my-auto mr-4">
