@@ -28,5 +28,10 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
   end
 
+  #ゲストログイン設定
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

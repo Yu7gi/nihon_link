@@ -9,6 +9,13 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    flash[:notice] = "You have logged in as a guest user."
+    redirect_to posts_path
+  end
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

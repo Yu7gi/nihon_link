@@ -34,7 +34,12 @@
         </tbody>
       </table>
       <div class="row d-flex justify-content-center mt-5">
-        <%= link_to 'Edit', edit_user_path(@user.id), class: 'btn btn-success btn-custom' %>　<%= link_to "Delete Account", user_path(current_user.id), class: "btn btn-danger btn-custom", method: :delete, "data-confirm" => "Are you sure you want to delete your account?" %>
+        <%= link_to 'Edit', edit_user_path(@user.id), class: 'btn btn-success btn-custom' %>　
+        <% if user_signed_in? && @user == current_user %>
+          <% unless @user.email == "guest@example.com" then %>
+            <%= link_to "Delete Account", user_path(current_user.id), class: "btn btn-danger btn-custom", method: :delete, "data-confirm" => "Are you sure you want to delete your account?" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
 

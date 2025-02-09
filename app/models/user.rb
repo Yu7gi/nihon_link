@@ -9,4 +9,13 @@ class User < ApplicationRecord
 
   validates :name, length: {minimum:2,maximum:20}
   validates :native, presence: true
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "Guest"
+      user.native = "English"
+      user.introduction = "(=^・^=)"
+    end
+  end
 end
