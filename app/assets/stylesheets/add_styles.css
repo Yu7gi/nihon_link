@@ -110,7 +110,3 @@ footer {
 .table-u {
   min-height: 20em;
 }
-
-.field_with_errors {
-  display: contents;
-}
