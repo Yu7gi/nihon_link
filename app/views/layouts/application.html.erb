@@ -15,13 +15,16 @@
   <body class="wrap">
 
     <header class="mb-2">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
           <a href="/" class="navbar-brand mx-5">
             <%= image_tag 'logo-re.png', size: "100x100" %>
           </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
+              <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                   <li class="nav-item mr-3">
                     <%= link_to 'About', about_path, class: 'btn btn-h' %>
@@ -43,6 +46,16 @@
                       <i class="fa-solid fa-bell"></i>
                     <% end %>
                   </li>
+                  <div class="search-form">
+                    <%= form_with url: search_path, local: true, method: :get do |f| %>
+                      <%= f.text_field :word, class: "form-control" %>
+                      <div class="d-flex justify-content-end">
+                        <%= button_tag type: 'submit', class: "btn btn-search" do %>
+                          <i class="fa-solid fa-magnifying-glass search"></i>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
                 <% elsif admin_signed_in? %>
                   <li class="nav-item mr-3">
                     <%= link_to 'ユーザー一覧', about_path, class: 'btn btn-h' %>

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       end
     end
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
+    get "search" => "searches#search"
   end
 
   #ゲストログイン設定

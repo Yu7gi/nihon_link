@@ -110,3 +110,52 @@ footer {
 .table-u {
   min-height: 20em;
 }
+
+.img-about {
+  max-width: 100%;
+	height: auto;
+}
+
+.btn-search {
+  border: 2px solid #fbfaf5;
+  background-color: #b7282e;
+}
+
+.search {
+  color: #fbfaf5;
+}
+
+.tab-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: none;
+  min-width: 120px;
+  text-align: center;
+}
+
+.tab-active {
+  color: #FFF;
+  background: #b94047;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabbox {
+  display: none;
+  padding: 15px;
+}
+
+.box-show {
+  display: block;
+}
+
+.tab:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}

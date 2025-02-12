@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :name, length: {minimum:2,maximum:20}
   validates :native, presence: true
 
+  # ゲストログイン機能設定
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -18,4 +19,10 @@ class User < ApplicationRecord
       user.introduction = "(=^・^=)"
     end
   end
+
+  # 検索機能設定
+  def self.looks(word)
+    @user = User.where("name LIKE?", "%#{word}%")
+  end
+
 end
