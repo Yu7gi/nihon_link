@@ -25,7 +25,9 @@ Rails.application.routes.draw do
         get 'mypage'
       end
     end
-    resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
+    resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
+      resources :comments, only: [:create, :destroy]
+    end
     get "search" => "searches#search"
   end
 
