@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path
+      redirect_to post_path(@post.id)
     else
       render :new
     end
@@ -38,7 +38,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to mypage_users_path
   end
 
   private
