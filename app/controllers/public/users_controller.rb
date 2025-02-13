@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_guest_user, only: [:edit, :update, :destroy]
 
   def show
     @posts = @user.posts
@@ -19,7 +20,7 @@ class Public::UsersController < ApplicationController
 
   def mypage
     @user = User.find(current_user.id)
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(5)
   end
 
   def destroy
@@ -43,5 +44,12 @@ class Public::UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def ensure_guest_user
+    if current_user.guest?
+      flash[:notice] = "Guest users cannot perform this action."
+      redirect_to posts_path
+    end
   end
 end

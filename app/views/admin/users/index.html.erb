@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mx-auto">
-    <h2>会員一覧</h2>
+    <h2 class="text-user mb-4">会員一覧</h2>
 
     <table class="table">
       <thead>
@@ -29,4 +29,5 @@
       </tbody>
     </table>
   </div>
+  <%= paginate @users, theme: 'twitter-bootstrap-4' %>
 </div>
