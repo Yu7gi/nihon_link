@@ -14,6 +14,7 @@
       <table class="table mt-3">
         <%= render 'list', posts: @posts %>
       </table>
+      <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
     </div>
   </div>
 </div>

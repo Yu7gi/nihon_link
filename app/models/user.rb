@@ -21,6 +21,10 @@ class User < ApplicationRecord
     end
   end
 
+  def guest?
+    email == 'guest@example.com'
+  end
+
   # 検索機能設定
   def self.looks(word)
     @user = User.where("name LIKE?", "%#{word}%")
