@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <h2 class="text-center text-user col-lg-3 col-md-4">ユーザー詳細</h2>
+    </div>
+    
+    <div class="col-md-8">
+      <table class="table mt-5">
+        <tbody>
+          <tr>
+            <th class="col-lg-4">ユーザー名</th>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th>自己紹介文</th>
+            <td><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <th>母国語</th>
+            <td><%= @user.native %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center mt-5">
+        <%= link_to "退会", admin_user_path(@user.id), class: "btn btn-danger btn-custom", method: :delete, "data-confirm" => "本当にこのユーザーを退会させますか？" %>
+      </div>
+    </div>
+  </div>
+</div>

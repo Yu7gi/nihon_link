@@ -91,6 +91,13 @@ footer {
   min-width: 10em;
 }
 
+.my-btn {
+  min-width: 130px;
+  max-width: 200px;
+  width: auto;
+  text-align: center;
+}
+
 .btn-custom {
   width: 10em;
 }
