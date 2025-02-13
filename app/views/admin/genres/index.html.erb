@@ -7,34 +7,35 @@
       </div>
 
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
-        <div class="col-9 mt-5 form-group row d-flex justify-content-end">
-          <div class="col-2 my-auto text-center">
-            <%= f.label :name, 'ジャンル名' %>
+        <div class="form-group row mt-3">
+          <div class="col-lg-9  d-flex justify-content-end">
+            <div class="col-lg-4">
+              <%= f.text_field :name, class: "form-control", placeholder: "ジャンル名を入力" %>
+            </div>
+            <%= f.submit "新規登録", class: "btn btn-primary" %>
           </div>
-          <div class="col-3">
-            <%= f.text_field :name, class: "form-control" %>
-          </div>
-          <%= f.submit "新規登録", class: "btn btn-primary" %>
         </div>
       <% end %>
 
       <div class="mt-4 d-flex justify-content-center">
-      <table class="table col-6">
-        <thead class="table-g">
-          <tr>
-            <th class="col-7 text-white">ジャンル名</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @genres.each do |genre| %>
+        <table class="table col-lg-6">
+          <thead class="table-g">
             <tr>
-              <td><h4><strong><%= genre.name %></strong></h4></td>
-              <td><%= link_to "編集", edit_admin_genre_path(genre.id), class: "btn btn-success mr-2" %><span><%= link_to "削除", admin_genre_path(genre.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+              <th class="col-lg-7 text-white">ジャンル名</th>
+              <th></th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @genres.each do |genre| %>
+              <tr>
+                <td><h4><strong><%= genre.name %></strong></h4></td>
+                <td><%= link_to "編集", edit_admin_genre_path(genre.id), class: "btn btn-success" %></td>
+                <td><%= link_to "削除", admin_genre_path(genre.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
 
     </div>
