@@ -6,6 +6,10 @@
         <h2 class="text-user">ジャンル一覧・追加</h2>
       </div>
 
+      <div class="row mt-3 d-flex justify-content-center">
+        <%= render "public/shared/error_messages", model: @genre %>
+      </div>
+
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
         <div class="form-group row mt-3">
           <div class="col-lg-9  d-flex justify-content-end">

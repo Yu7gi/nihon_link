@@ -6,6 +6,10 @@
         <h2 class="text-user">ジャンル名編集</h2>
       </div>
 
+      <div class="row mt-3 d-flex justify-content-center">
+        <%= render "public/shared/error_messages", model: @genre %>
+      </div>
+
       <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
         <div class="form-group row d-flex justify-content-center mt-5">
           <div class="col-sm-6">
