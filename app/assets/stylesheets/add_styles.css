@@ -181,6 +181,25 @@ footer {
   transform: translateY(-1px);
 }
 
+.table-group {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 400px;
+}
+
+.table-group td {
+  word-wrap: break-word;
+  white-space: normal;
+  background-color: #ffe0e1;
+}
+
+.table-group th {
+  background-color: #eb868b;
+  color: #fff;
+  text-align: center;
+}
+
 /* ページネーション設定 */
 .pagination {
   display: flex;
@@ -223,4 +242,5 @@ footer {
     width: 100%;
     text-align: center;
   }
+
 }

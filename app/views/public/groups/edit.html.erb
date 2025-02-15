@@ -1,0 +1,37 @@
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <div class="col">
+
+      <div class="row mt-5 d-flex justify-content-center">
+        <h2 class="text-user">Edit group</h2>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <%= render "public/shared/error_messages", model: @group %>
+      </div>
+
+      <%= form_with model: @group, local: true do |f| %>
+        <div class="form-group row mt-4">
+          <div class="col-md-3 my-auto mr-3">
+            <%= f.label :name, 'Group name' %>
+          </div>
+          <div class="col-md-3 form-post">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <div class="col-md-3 my-auto mr-3">
+            <%= f.label :introduction %>
+          </div>
+          <div class="col-md-3 form-post">
+            <%= f.text_area :introduction, class: "form-control" %>
+          </div>
+        </div>
+      
+        <div class="d-flex justify-content-center mt-4">
+          <button type="submit" class="btn btn-success btn-custom">Edit group</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

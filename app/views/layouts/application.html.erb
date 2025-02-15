@@ -27,9 +27,6 @@
               <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                   <li class="nav-item mr-3">
-                    <%= link_to 'About', about_path, class: 'btn btn-h' %>
-                  </li>
-                  <li class="nav-item mr-3">
                     <%= link_to 'My page', mypage_users_path, class: 'btn btn-h' %>
                   </li>
                   <li class="nav-item mr-3">
@@ -37,6 +34,9 @@
                   </li>
                   <li class="nav-item mr-3">
                     <%= link_to 'New post', new_post_path, class: 'btn btn-h' %>
+                  </li>
+                  <li class="nav-item mr-3">
+                    <%= link_to 'Groups', groups_path, class: 'btn btn-h' %>
                   </li>
                   <li class="nav-item mr-3">
                     <%= link_to 'Log out', destroy_user_session_path, class: 'btn btn-h', method: :delete %>
