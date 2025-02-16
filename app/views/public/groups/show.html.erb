@@ -28,9 +28,11 @@
         <% else %>
           <% if @group.include_user?(current_user) %>
             <%= link_to "Leave this group", group_group_users_path(@group), method: :delete, class: "btn btn-danger" %>
-          <% else %>
-            <%= link_to "Join this group", group_group_users_path(@group), method: :post, class: "btn btn-success" %>
-         <% end %>
+          <% elsif @group.permits.exists?(user_id: current_user.id) %>
+            <%= link_to "Cancel Request", group_permits_path(@group), method: :delete, class: "btn btn-danger" %>
+         <% else %>
+           <%= link_to "Join Request", group_permits_path(@group), method: :post, class: "btn btn-success" %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -39,6 +41,11 @@
       <div class="d-flex justify-content-center mb-4">
         <h3 class="text-user">Group member</h3>
       </div>
+      <% if @group.owner_id == current_user.id %>
+        <div class="d-flex justify-content-end">
+          <%= link_to "Pending Approval List", permits_path(@group), class: "btn btn-info mb-3" %>
+        </div>
+      <% end %>
       <table class="table">
         <thead>
           <tr>

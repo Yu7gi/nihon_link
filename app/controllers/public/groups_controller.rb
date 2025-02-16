@@ -1,6 +1,5 @@
 class Public::GroupsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy, :permits]
 
   def index
     @group = Group.new
@@ -36,6 +35,11 @@ class Public::GroupsController < ApplicationController
   def destroy
     @group.destroy
     redirect_to groups_path
+  end
+
+  def permits
+    @group = Group.find(params[:id])
+    @permits = @group.permits.page(params[:page]).per(10)
   end
 
   private

@@ -32,8 +32,10 @@ Rails.application.routes.draw do
     end
     resources :groups, only: [:index, :show, :create, :edit, :update, :destroy] do
       resource :group_users, only: [:create, :destroy]
+      resource :permits, only: [:create, :destroy]
     end
     get "search" => "searches#search"
+    get "groups/:id/permits" => "groups#permits", as: :permits
   end
 
   #ゲストログイン設定
