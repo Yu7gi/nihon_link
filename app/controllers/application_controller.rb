@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def authenticate_admin!
     return if request.path == new_admin_session_path
     unless admin_signed_in?
-      flash[:alert] = "管理者としてログインしてください"
+      flash[:alert] = "管理者としてログインしてください / Please log in as an administrator."
       redirect_to main_app.new_admin_session_path
     end
   end

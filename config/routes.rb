@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :destroy]
     resources :comments, only: [:index, :destroy]
+    resources :groups, only: [:index, :destroy]
   end
 
   #会員側ルーティング設定
