@@ -30,22 +30,7 @@
     <div class="col-lg-8 mt-5">
       <h3 class="text-user text-center">Groups</h3>
       <div class="table-responsive">
-        <table class="table mt-3">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Introduction</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @groups.each do |group| %>
-              <tr>
-                <td><%= link_to group.name, group_path(group) %></td>
-                <td><%= group.introduction %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <%= render "list", groups: @groups %> 
       </div>
       <%= paginate @groups, theme: 'twitter-bootstrap-4' %>
     </div>
