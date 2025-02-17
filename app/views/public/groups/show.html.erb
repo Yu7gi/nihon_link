@@ -1,0 +1,75 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    <div class="col-lg-4 mb-5">
+      <div class="d-flex justify-content-center mb-4">
+        <h3 class="text-user">Group detail</h3>
+      </div>
+      <table class="table table-group col-md-6 col-lg-11 col-xl-8 mx-auto mt-4">
+        <tbody>
+          <tr>
+            <th class="align-middle">Name</th>
+            <td><%= @group.name %></td>
+          </tr>
+          <tr>
+            <th class="align-middle">Introduction</th>
+            <td><%= @group.introduction %></td>
+          </tr>
+          <tr>
+            <th class="align-middle">Owner</th>
+            <td><%= @group.owner&.name || "Unknown" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <% if @group.owner_id == current_user.id %>
+          <%= link_to "Edit", edit_group_path(@group), class: "btn btn-success my-btn" %>　
+          <%= link_to "Delete Group", group_path(@group), class: "btn btn-danger my-btn", method: :delete, "data-confirm" => "Are you sure you want to delete this group?" %>
+        <% else %>
+          <% if @group.include_user?(current_user) %>
+            <%= link_to "Leave this group", group_group_users_path(@group), method: :delete, class: "btn btn-danger" %>
+          <% elsif @group.permits.exists?(user_id: current_user.id) %>
+            <%= link_to "Cancel Request", group_permits_path(@group), method: :delete, class: "btn btn-danger" %>
+         <% else %>
+           <%= link_to "Join Request", group_permits_path(@group), method: :post, class: "btn btn-success" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-6 offset-lg-1">
+      <div class="d-flex justify-content-center mb-4">
+        <h3 class="text-user">Group member</h3>
+      </div>
+      <% if @group.owner_id == current_user.id %>
+        <div class="d-flex justify-content-end">
+          <%= link_to "Pending Approval List", permits_path(@group), class: "btn btn-info mb-3" %>
+        </div>
+      <% end %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-2"></th>
+            <th>User Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @group.users.each do |member| %>
+            <tr>
+              <td>
+                <%= link_to user_path(member) do %>
+                  <% if member.profile_image.attached? %>
+                    <%= image_tag member.profile_image, size: "70x70" %>
+                  <% else %>
+                    <%= image_tag asset_path("icon_user_5.png"), size: "70x70" %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td><%= member.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>         
+    </div>
+  </div>
+</div>
