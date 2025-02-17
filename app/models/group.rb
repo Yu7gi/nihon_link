@@ -4,7 +4,7 @@ class Group < ApplicationRecord
   has_many :users, through: :group_users, source: :user
   has_many :permits, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, length: {minimum:1,maximum:20}
   validates :introduction, presence: true
 
   def is_owned_by?(user)
