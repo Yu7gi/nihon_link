@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>" class="text-user text-center mb-5">Direct Message with <%= @user.name %></h2>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 message-container">
+      <% @messages.each do |message| %>
+        <% if message.user_id == current_user.id %>
+          <%= render "message", message: message %>
+        <% else %>
+          <div class="row">
+            <div class="col-lg-1">
+              <%= link_to user_path(@user.id) do %>
+                <% if @user.profile_image.attached? %>
+                  <%= image_tag url_for(@user.profile_image), size: "60x60" %>
+                <% else %>
+                  <%= image_tag 'icon_user_5.png', size: "60x60" %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="col-lg-4">
+              <p class="ml-1 text-white" style="background-color: #ee827c; padding: 5px; border-radius: 10px; "><%= message.message %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center mt-5">
+    <div class="col-4 errors"></div>
+  </div>
+
+  <%= form_with model: @message, data: {remote: true} do |f| %>
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-5">
+        <%= f.text_area :message, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-4">
+      <%= f.submit "Send", class: "btn btn-success my-btn" %>
+      <%= f.hidden_field :room_id %>
+    </div>
+  <% end %>
+</div>

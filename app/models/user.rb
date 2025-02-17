@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
   has_many :permits, dependent: :destroy
+  has_many :room_users, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :rooms, through: :room_users
   has_one_attached :profile_image
 
   validates :name, length: {minimum:2,maximum:20}
