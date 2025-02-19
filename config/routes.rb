@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       resource :permits, only: [:create, :destroy]
     end
     resources :messages, only: [:show, :index, :create, :destroy]
+    resources :notifications, only: [:index]
     get "search" => "searches#search"
     get "groups/:id/permits" => "groups#permits", as: :permits
   end
