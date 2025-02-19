@@ -11,19 +11,33 @@
     <li class="tab">
       users
     </li>
+    <li class="tab">
+      groups
+    </li>
   </ul>
 
   <div class="tabbox-contents">
     <div class="tabbox box-show" data-tag="posts">
-      <table class="table">
-        <%= render 'public/posts/list', posts: @posts %>
-      </table>
+      <div class="table-responsive">
+        <table class="table">
+          <%= render 'public/posts/list', posts: @posts %>
+        </table>
+      </div>
     </div>
     <div class="tabbox" data-tag="users">
-      <table class="table">
-        <%= render 'users', users: @users %>
-      </table>
-     </div>
+      <div class="table-responsive">
+        <table class="table">
+          <%= render 'users', users: @users %>
+        </table>
+      </div>
+    </div>
+    <div class="tabbox" data-tag="groups">
+      <div class="table-responsive">
+        <table class="table">
+          <%= render "public/groups/list", groups: @groups %>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
     

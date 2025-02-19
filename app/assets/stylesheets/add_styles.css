@@ -243,4 +243,16 @@ footer {
     text-align: center;
   }
 
+  .tab {
+    min-width: 80px;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .my-table th, .my-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
