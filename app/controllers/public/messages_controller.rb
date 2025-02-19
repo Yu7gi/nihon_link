@@ -1,4 +1,5 @@
 class Public::MessagesController < ApplicationController
+  before_action :reject_guest_user
 
   def index
     @rooms = current_user.rooms.includes(:messages).page(params[:page]).per(10)
@@ -39,7 +40,7 @@ class Public::MessagesController < ApplicationController
   def reject_guest_user
     if current_user.guest?
       flash[:alert] = "Guest users cannot access the DM feature."
-      redirect_to root_path
+      redirect_to mypage_users_path
     end
   end
 

@@ -7,11 +7,17 @@ class Group < ApplicationRecord
   validates :name, length: {minimum:1,maximum:20}
   validates :introduction, presence: true
 
+  #オーナー設定
   def is_owned_by?(user)
     owner.id == user.id
   end
 
   def include_user?(user)
     group_users.exists?(user_id: user.id)
+  end
+
+  # 検索機能設定
+  def self.looks(word)
+    @group = Group.where("name LIKE?", "%#{word}%")
   end
 end
