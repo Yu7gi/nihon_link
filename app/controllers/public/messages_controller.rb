@@ -1,5 +1,9 @@
 class Public::MessagesController < ApplicationController
 
+  def index
+    @rooms = current_user.rooms.includes(:messages)
+  end
+
   def show
     @user = User.find(params[:id])
     rooms = current_user.room_users.pluck(:room_id)
@@ -31,6 +35,13 @@ class Public::MessagesController < ApplicationController
   end
 
   private
+
+  def reject_guest_user
+    if current_user.guest?
+      flash[:alert] = "Guest users cannot access the DM feature."
+      redirect_to root_path
+    end
+  end
 
   def message_params
     params.require(:message).permit(:message, :room_id)

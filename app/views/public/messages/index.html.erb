@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row d-flex justify-content-center mb-3">
+    <h2 class="text-center text-user">Private Messages</h2>
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <tbody>
+        <% @rooms.each do |room| %>
+          <% partner = room.users.where.not(id: current_user.id).first %>
+
+          <tr>
+            <td>
+              <% if partner %>
+                <%= link_to user_path(partner.id) do %>
+                  <% if partner.profile_image.attached? %>
+                    <%= image_tag url_for(partner.profile_image), size: "70x70" %>
+                  <% else %>
+                    <%= image_tag 'icon_user_5.png', size: "70x70" %>
+                  <% end %>
+                  <br>
+                  <div class="text-dark"><%= partner.name %></div>
+                <% end %>
+              <% else %>
+                <p>Unknown User</p>
+              <% end %>
+            </td>
+            <td class="col-md-8">
+              <% latest_message = room.messages.order(created_at: :desc).first %>
+              <% if latest_message %>
+                <p><%= latest_message.message %></p>
+              <% else %>
+                <p>No messages yet</p>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to "Open Chat", message_path(partner.id), class: "btn btn-primary" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+          
