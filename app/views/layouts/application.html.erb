@@ -38,6 +38,11 @@
                   <li class="nav-item mr-3">
                     <%= link_to 'Groups', groups_path, class: 'btn btn-h' %>
                   </li>
+                  <% unless current_user.guest? %>
+                    <li class="nav-item mr-3">
+                      <%= link_to 'DM', messages_path, class: 'btn btn-h' %>
+                    </li>
+                  <% end %>
                   <li class="nav-item mr-3">
                     <%= link_to 'Log out', destroy_user_session_path, class: 'btn btn-h', method: :delete %>
                   </li>

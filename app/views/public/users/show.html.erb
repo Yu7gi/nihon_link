@@ -25,6 +25,11 @@
           </tr>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center mt-4">
+        <% if !(current_user.guest? || @user.guest?) && @user.id != current_user.id %>
+          <%= link_to "Send Message", message_path(@user.id), class: "btn btn-outline-danger my-btn" %>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-md-6 mt-5"> 
