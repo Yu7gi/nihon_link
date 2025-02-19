@@ -1,7 +1,7 @@
 class Public::MessagesController < ApplicationController
 
   def index
-    @rooms = current_user.rooms.includes(:messages)
+    @rooms = current_user.rooms.includes(:messages).page(params[:page]).per(10)
   end
 
   def show
