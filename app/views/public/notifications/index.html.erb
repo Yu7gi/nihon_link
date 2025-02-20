@@ -1,4 +1,26 @@
 <div class="container">
   <h2 class="text-user text-center">Notifications</h2>
 
-  
+  <%= link_to "Delete all", destroy_all_notifications_path, method: :delete, remote: true, class: "btn btn-danger mb-4" %>
+
+  <ul class="notification-list">
+    <% if @notifications.any? %>
+      <% @notifications.each do |notification| %>
+        <li class="notification-item">
+          <% if notification.action == "dm" %>
+            <% message = Message.find_by(id: notification.message_id) %>
+            <% if message %>
+              <%= link_to "#{notification.visitor.name} sent you a message (#{time_ago_in_words(notification.created_at)} ago)", message_path(message.user_id), class: "notification-text" %>
+            <% end %>
+          <% elsif notification.action == "group_request" %>
+            <%= link_to "#{notification.visitor.name} requested to join the group (#{time_ago_in_words(notification.created_at)} ago)", permits_path(notification.permit.group_id), class: "notification-text" %>
+          <% elsif notification.action == "comment" %>
+            <%= link_to "#{notification.visitor.name} commented on your post (#{time_ago_in_words(notification.created_at)} ago)", post_path(notification.comment.post_id), class: "notification-text" %>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <h3 class="text-center mt-5">There are no notifications</h3>
+    <% end %>
+  </ul>
+</div>

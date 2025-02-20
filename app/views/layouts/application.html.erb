@@ -47,8 +47,8 @@
                     <%= link_to 'Log out', destroy_user_session_path, class: 'btn btn-h', method: :delete %>
                   </li>
                   <li class="nav-item mr-3">
-                    <%= link_to about_path, class: 'btn btn-h' do %>
-                      <i class="fa-solid fa-bell"></i>
+                    <%= link_to notifications_path, class: 'btn' do %>
+                      <i class="fa-solid fa-bell <%= 'bell-notified' if @notifications.any? %>"></i>
                     <% end %>
                   </li>
                   <div class="search-form">

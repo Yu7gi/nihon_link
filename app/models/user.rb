@@ -37,8 +37,4 @@ class User < ApplicationRecord
   def self.looks(word)
     @user = User.where("name LIKE?", "%#{word}%")
   end
-
-  def unread_notifications
-    notifications.where(checked: false)
-  end
 end

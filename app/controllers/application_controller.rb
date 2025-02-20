@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, if: :public_controller?
   before_action :authenticate_admin!, if: :admin_controller?
+  before_action :set_notifications
 
   protected
 
@@ -25,5 +26,9 @@ class ApplicationController < ActionController::Base
 
   def admin_controller?
     controller_path.start_with?('admin/')
+  end
+
+  def set_notifications
+    @notifications = current_user ? current_user.passive_notifications : []
   end
 end

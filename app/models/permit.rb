@@ -11,8 +11,8 @@ class Permit < ApplicationRecord
   def create_notification_permit
     Notification.create(
       visitor_id: self.user.id,
-      visited_id: self.group.owner.id
-      group_id: self.group.id,
+      visited_id: self.group.owner_id,
+      permit_id: self.id,
       action: 'group_request'
     )
   end

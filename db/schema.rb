@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_02_19_160032) do
+ActiveRecord::Schema.define(version: 2025_02_20_170734) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 2025_02_19_160032) do
     t.integer "permit_id"
     t.integer "message_id"
     t.string "action", default: "", null: false
-    t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
@@ -147,7 +146,6 @@ ActiveRecord::Schema.define(version: 2025_02_19_160032) do
     t.string "name", default: "", null: false
     t.string "introduction"
     t.string "native", default: "", null: false
-    t.integer "jp_level"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
