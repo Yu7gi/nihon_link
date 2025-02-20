@@ -226,6 +226,34 @@ footer {
   box-shadow: none;
 }
 
+.notification-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notification-item {
+  font-weight: bold;
+  background: #ffe0e1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  transition: background 0.3s ease;
+}
+
+.notification-text {
+  color: rgb(0, 128, 255);
+}
+
+.fa-bell {
+  color: gray; /* 通常は灰色 */
+  position: relative;
+  font-size: 24px;
+}
+
+.fa-bell.bell-notified {
+  color: yellow;
+}
+
 @media (max-width: 768px) {
   .button-group {
     flex-direction: column;
