@@ -7,7 +7,7 @@
         <% end %>
       </td>
       <td>
-        <i class="fa-regular fa-flag"></i>　<%= post.genre.name %>
+        <i class="fa-regular fa-flag"></i>　<%= post.genre ? post.genre.name : "No genre" %>
       </td>
     </tr>
   <% end %>

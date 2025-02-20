@@ -14,7 +14,7 @@
 
         <div class="mb-5 row">
           <div class="ml-3">
-            <i class="fa-regular fa-flag"></i>　<%= @post.genre.name %>
+            <i class="fa-regular fa-flag"></i>　<%= @post.genre ? @post.genre.name : "No genre" %>
           </div>
           <div class="col-lg-8 d-flex justify-content-end button-group">
             <% if @post.user == current_user %>

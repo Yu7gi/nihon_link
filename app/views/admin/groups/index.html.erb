@@ -3,7 +3,9 @@
     <h2 class="text-user mb-4">グループ一覧</h2>
 
     <div class="table-responsive">
-      <%= render "public/groups/list", groups: @groups %> 
+      <table class="table">
+        <%= render "public/groups/list", groups: @groups %> 
+      </table>
     </div>
     <div class="col">
       <%= paginate @groups, theme: 'twitter-bootstrap-4' %>

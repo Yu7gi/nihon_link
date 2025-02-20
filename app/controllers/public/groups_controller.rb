@@ -1,5 +1,6 @@
 class Public::GroupsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy, :permits]
+  before_action :ensure_guest_user, only: [:create]
 
   def index
     @group = Group.new
@@ -52,6 +53,13 @@ class Public::GroupsController < ApplicationController
     @group = Group.find(params[:id])
     unless @group.owner_id == current_user.id
       flash[:notice] = "Only the group owner can perform this action."
+      redirect_to groups_path
+    end
+  end
+
+  def ensure_guest_user
+    if current_user.guest?
+      flash[:notice] = "Guest users cannot perform this action."
       redirect_to groups_path
     end
   end

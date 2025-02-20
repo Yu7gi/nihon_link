@@ -16,6 +16,11 @@ class Public::SessionsController < Devise::SessionsController
     redirect_to posts_path
   end
 
+  def destroy
+    reset_guest_data if current_user.email == 'guest@example.com'
+    super
+  end
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

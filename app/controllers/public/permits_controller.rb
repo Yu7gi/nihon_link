@@ -1,4 +1,5 @@
 class Public::PermitsController < ApplicationController
+  before_action :ensure_guest_user, only: [:create, :destroy]
   
   def create
     @group = Group.find(params[:group_id])
@@ -13,5 +14,14 @@ class Public::PermitsController < ApplicationController
     permit.destroy
     flash[:alert] = "Your join request has been canceled."
     redirect_to request.referer
+  end
+
+  private
+
+  def ensure_guest_user
+    if current_user.guest?
+      flash[:notice] = "Guest users cannot perform this action."
+      redirect_to posts_path
+    end
   end
 end

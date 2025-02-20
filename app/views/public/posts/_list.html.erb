@@ -16,6 +16,6 @@
         <strong><%= post.title %></strong></td>
       <% end %>
     </td>
-    <td class="col-2 pt-5"><i class="fa-regular fa-flag"></i>　<%= post.genre.name %></td>
+    <td class="col-2 pt-5"><i class="fa-regular fa-flag"></i>　<%= post.genre ? post.genre.name : "No genre" %></td>
   </tr>
 <% end %>

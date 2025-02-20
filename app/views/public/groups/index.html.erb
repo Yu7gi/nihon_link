@@ -1,31 +1,33 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
     
-    <div class="col-lg-3 mt-5 d-flex flex-column align-items-center">
-      <div class="d-flex justify-content-center mb-4">
-        <h3 class="text-user">Create group</h3>
+    <% unless current_user.guest? %>
+      <div class="col-lg-3 mt-5 d-flex flex-column align-items-center">
+        <div class="d-flex justify-content-center mb-4">
+          <h3 class="text-user">Create group</h3>
+        </div>
+
+        <div>
+          <%= render "public/shared/error_messages", model: @group %>
+        </div>
+
+        <%= form_with model: @group, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :name, 'Group name' %>
+            <%= f.text_field :name, class: "form-control form-container" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :introduction %>
+            <%= f.text_area :introduction, class: "form-control form-container" %>
+          </div>
+
+          <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary btn-custom">Create group</button>
+          </div>
+        <% end %>
       </div>
-
-      <div>
-        <%= render "public/shared/error_messages", model: @group %>
-      </div>
-
-      <%= form_with model: @group, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :name, 'Group name' %>
-          <%= f.text_field :name, class: "form-control form-container" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :introduction %>
-          <%= f.text_area :introduction, class: "form-control form-container" %>
-        </div>
-
-        <div class="d-flex justify-content-center mt-4">
-          <button type="submit" class="btn btn-primary btn-custom">Create group</button>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
 
     <div class="col-lg-8 mt-5">
       <h3 class="text-user text-center">Groups</h3>

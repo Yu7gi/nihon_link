@@ -3,10 +3,22 @@ class Public::MessagesController < ApplicationController
 
   def index
     @rooms = current_user.rooms.includes(:messages).page(params[:page]).per(10)
+    @rooms.each do |room|
+      partner = room.users.where.not(id: current_user.id).first
+      if partner.nil?
+        room.destroy
+      end
+    end
   end
 
   def show
     @user = User.find(params[:id])
+
+    if current_user.id == @user.id
+      redirect_to messages_path, alert: "You cannot view your own messages."
+      return
+    end
+
     rooms = current_user.room_users.pluck(:room_id)
     room_users = RoomUser.find_by(user_id: @user.id, room_id: rooms)
     unless room_users.nil?

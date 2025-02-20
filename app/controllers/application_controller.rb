@@ -31,4 +31,10 @@ class ApplicationController < ActionController::Base
   def set_notifications
     @notifications = current_user ? current_user.passive_notifications : []
   end
+
+  def reset_guest_data
+    guest_user = User.find_by(email: 'guest@example.com')
+    guest_user.posts.destroy_all if guest_user.posts.any?
+    guest_user.comments.destroy_all if guest_user.comments.any?
+  end
 end
