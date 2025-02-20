@@ -34,7 +34,11 @@
               <% end %>
             </td>
             <td>
-              <%= link_to "Open Chat", message_path(partner.id), class: "btn btn-primary" %>
+              <% if partner %>
+                <%= link_to "Open Chat", message_path(partner.id), class: "btn btn-primary" %>
+              <% else %>
+                <span class="text-muted">No partner available</span>
+              <% end %>
             </td>
           </tr>
         <% end %>

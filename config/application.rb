@@ -19,6 +19,13 @@ module NihonLink
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+
+    config.after_initialize do
+      guest_user = User.find_or_create_by(email: 'guest@example.com')
+
+      guest_user.posts.each { |post| post.destroy } if guest_user.posts.any?
+      guest_user.comments.each { |comment| comment.destroy } if guest_user.comments.any?
+    end
   end
 end
 
