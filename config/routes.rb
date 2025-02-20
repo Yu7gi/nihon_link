@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       end
     end
     get "search" => "searches#search"
+    get "genre/search" => "searches#genre_search"
     get "groups/:id/permits" => "groups#permits", as: :permits
   end
 
