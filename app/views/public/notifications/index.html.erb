@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="text-user text-center">Notifications</h2>
 
-  <%= link_to "Delete all", destroy_all_notifications_path, method: :delete, remote: true, class: "btn btn-danger mb-4" %>
+  <%= link_to "Delete all", destroy_all_notifications_path, method: :delete, remote: true, class: "btn btn-danger mb-4", "data-confirm" => "Are you sure you want to delete all the messages?" %>
 
   <ul class="notification-list">
     <% if @notifications.any? %>
