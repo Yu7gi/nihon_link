@@ -2,9 +2,36 @@
   <div class="bg-image" style="background-image: url('<%= asset_path('shinto-shrine-gates.jpg') %>'); background-size: cover; background-position: center; height: 500px;  display: flex; justify-content: center; align-items: center;">
     <div class="row">
       <div class="col bg-dark" style="opacity: 0.8;">
-        <h1 class=" text-white text-center">Nihon Link</h1>
-        <h5 class=" text-white text-center">留学生向け日本コミュニティサイト</h5>
+        <h1 class="text-white text-center">Nihon Link</h1>
+        <h5 class="text-white text-center">- Community for International Students in Japan -</h5>
       </div>
     </div>
   </div>
+
+  <div class="row mt-4">
+    <% unless admin_signed_in? %>
+      <% if user_signed_in? %>
+        <div class="col-md-9">
+          <div>
+            <h2 class="text-user text-center mb-3">Recent Updates</h2>
+          </div>
+          <table class="table">
+            <%= render 'public/posts/list', posts: @posts %>
+          </table>
+          <div class="d-flex justify-content-end">
+            <%= link_to "Check more >>", posts_path %>
+          </div> 
+        </div>
+        <div class="col-md-3">
+          <h2 class="text-user text-center">Genres</h2>
+          <%= render 'public/posts/genres', genres: @genres %>
+        </div>
+      <% else %>
+        <div class="mx-auto mt-5">
+          <%= link_to "Explore as a Guest!", users_guest_sign_in_path, method: :post, class: "btn-guest" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>

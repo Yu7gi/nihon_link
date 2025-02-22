@@ -35,11 +35,6 @@ footer {
   bottom: 0;
 }
 
-/* アバウトページ文字装飾 */
-.bg-about {
-  border: dashed 2px #f19072;
-}
-
 .wrap {
   min-height: 100vh;
   position: relative;
@@ -127,12 +122,6 @@ footer {
 
 .table-u {
   min-height: 20em;
-}
-
-/* アバウトページ画像サイズ調整 */
-.img-about {
-  max-width: 100%;
-	height: auto;
 }
 
 /* 検索ボタン色 */
@@ -254,6 +243,51 @@ footer {
   color: yellow;
 }
 
+.genre-text {
+  color: rgb(105, 105, 105);
+}
+
+
+.btn-guest {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	position: relative;
+	width: 600px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	color: #b7282e;
+	background: #ffcece;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-guest::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border: 2px solid #b7282e;
+  transition: 0.2s;
+}
+
+.btn-guest:hover {
+	background: #b7282e;
+	color: #fbfaf5;
+}
+
+.btn-guest:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.text-red {
+  color: #b7282e; /* 色を赤にする */
+}
+
 @media (max-width: 768px) {
   .button-group {
     flex-direction: column;
@@ -275,6 +309,9 @@ footer {
     min-width: 80px;
   }
 
+  .btn-guest {
+    width: auto;
+  }
 }
 
 @media (max-width: 320px) {
