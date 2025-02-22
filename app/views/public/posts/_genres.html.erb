@@ -4,7 +4,7 @@
       <% genres.each do |genre| %>
         <tr>
           <td class="text-center">
-            <strong><%= link_to genre.name, genre_search_path(genre_id: genre.id), method: :get %></strong>
+            <strong><%= link_to genre.name, genre_search_path(genre_id: genre.id), method: :get, class: "genre-text" %>　(<%= genre.posts.count %>)</strong>
           </td>
         </tr>
       <% end %>
