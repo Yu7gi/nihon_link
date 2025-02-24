@@ -9,7 +9,7 @@
         <h4 class="border-bottom pb-2"><%= @post.title %></h4>
 
         <div class="mt-5 mb-3">
-          <h5 class="border-bottom pb-3"><%= @post.body %></h5>
+          <h5 class="border-bottom pb-3"><%= simple_format(@post.body) %></h5>
         </div>
 
         <div class="mb-5 row">

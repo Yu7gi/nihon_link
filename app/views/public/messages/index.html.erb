@@ -28,7 +28,7 @@
             <td class="col-md-8">
               <% latest_message = room.messages.order(created_at: :desc).first %>
               <% if latest_message %>
-                <p><%= latest_message.message %></p>
+                <p><%= truncate(latest_message.message, length: 50) %></p>
               <% else %>
                 <p>No messages yet</p>
               <% end %>

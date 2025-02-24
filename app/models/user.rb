@@ -17,7 +17,8 @@ class User < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name, length: {minimum:2,maximum:20}
-  validates :native, presence: true
+  validates :introduction, length: {maximum:250}
+  validates :native, presence: true, length: {maximum:30}
 
   # ゲストログイン機能設定
   def self.guest

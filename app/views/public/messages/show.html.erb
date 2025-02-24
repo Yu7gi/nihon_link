@@ -20,7 +20,9 @@
               <% end %>
             </div>
             <div class="col-lg-4">
-              <p class="ml-1 text-white" style="background-color: #ee827c; padding: 5px; border-radius: 10px; "><%= message.message %></p>
+              <div class="ml-1 mt-1" style="background-color: #ffd3d1; padding: 5px; border-radius: 10px;">
+                <%= simple_format(message.message, {}, wrapper_tag: "div") %>
+              </div>
             </div>
           </div>
         <% end %>
