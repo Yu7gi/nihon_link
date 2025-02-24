@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   validates :name, length: {minimum:2,maximum:15}
   validates :introduction, length: {maximum:235}
-  validates :native, presence: true, length: {maximum:30}
+  validates :native, presence: true, length: {maximum:15}
 
   # ゲストログイン機能設定
   def self.guest
