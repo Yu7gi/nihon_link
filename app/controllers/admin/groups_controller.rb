@@ -7,6 +7,7 @@ class Admin::GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
+    flash[:notice] = 'グループ削除完了'
     redirect_to admin_groups_path
   end
 end

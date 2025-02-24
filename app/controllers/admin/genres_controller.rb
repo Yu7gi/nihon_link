@@ -24,6 +24,7 @@ class Admin::GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
+      flash[:notice] = 'ジャンル編集完了'
       redirect_to admin_genres_path
     else
       render :edit
@@ -33,6 +34,7 @@ class Admin::GenresController < ApplicationController
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy
+    flash[:notice] = 'ジャンル削除完了'
     redirect_to admin_genres_path
   end
 

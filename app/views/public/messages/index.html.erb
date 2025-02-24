@@ -4,7 +4,7 @@
   </div>
 
   <div class="row">
-    <table class="table">
+    <table class="table table-meg">
       <tbody>
         <% @rooms.each do |room| %>
           <% partner = room.users.where.not(id: current_user.id).first %>
@@ -19,7 +19,7 @@
                     <%= image_tag 'icon_user_5.png', size: "70x70" %>
                   <% end %>
                   <br>
-                  <div class="text-dark"><%= partner.name %></div>
+                  <div class="message-name text-dark"><%= partner.name %></div>
                 <% end %>
               <% else %>
                 <p>Unknown User</p>

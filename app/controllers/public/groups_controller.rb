@@ -16,6 +16,7 @@ class Public::GroupsController < ApplicationController
     @group.owner_id = current_user.id
     if @group.save
       GroupUser.create(user_id: current_user.id, group_id: @group.id)
+      flash[:notice] = 'Group created successfully'
       redirect_to groups_path, method: :post
     else
       @groups = Group.page(params[:page]).per(7)
@@ -28,6 +29,7 @@ class Public::GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
+      flash[:notice] = 'Group edited successfully'
       redirect_to group_path(@group.id)
     else
       render :edit
@@ -36,6 +38,7 @@ class Public::GroupsController < ApplicationController
 
   def destroy
     @group.destroy
+    flash[:notice] = 'Group deleted successfully'
     redirect_to groups_path
   end
 
