@@ -1,8 +1,12 @@
 <tbody>
   <% groups.each do |group| %>
     <tr>
-      <td><%= link_to group.name, group_path(group) %></td>
-      <td><%= group.introduction %></td>
+      <% if admin_signed_in? %>
+        <td><%= group.name %></td>
+      <% else %>
+        <td><%= link_to group.name, group_path(group) %></td>
+      <% end %>
+      <td><%= truncate(group.introduction, length: 50) %></td>
       <td><%= group.users.count %></td>
       <% if admin_signed_in? %>
         <td><%= link_to "削除", admin_group_path(group), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
