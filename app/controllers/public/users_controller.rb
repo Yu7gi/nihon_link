@@ -12,6 +12,7 @@ class Public::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      flash[:notice] = 'User information edited successfully'
       redirect_to mypage_users_path
     else
       render :edit

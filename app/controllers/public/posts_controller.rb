@@ -10,6 +10,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      flash[:notice] = 'Post created successfully'
       redirect_to post_path(@post.id)
     else
       render :new
@@ -30,6 +31,7 @@ class Public::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      flash[:notice] = 'Post edited successfully'
       redirect_to post_path(@post.id)
     else
       render :edit
@@ -38,6 +40,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    flash[:notice] = 'Post deleted successfully'
     redirect_to mypage_users_path
   end
 

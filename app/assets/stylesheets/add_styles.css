@@ -5,6 +5,7 @@
   color: #6c6b6b;
 }
 
+/* 投稿詳細内用テキスト設定 */
 h4, h5 {
   width: 100%;
   word-wrap: break-word;
@@ -12,6 +13,14 @@ h4, h5 {
   word-break: break-word;
 }
 
+/* ユーザー詳細内テーブル */
+.table-us {
+  width: 50%;
+  margin: auto;
+  table-layout: fixed;
+}
+
+/* コメント表示 */
 #comments {
   width: 100%;
   max-width: 100%;
@@ -19,6 +28,7 @@ h4, h5 {
   overflow-wrap: break-word;
 }
 
+/* DMテキスト表示設定 */
 .message-container .message-style {
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -130,10 +140,12 @@ footer {
   width: 10em;
 }
 
+/* 投稿フォーム */
 .form-post {
   min-width: 15em;
 }
 
+/* 投稿本文フォーム */
 .form-b {
   min-height: 10em;
 }
@@ -142,6 +154,7 @@ footer {
   background-color: #cb565b;
 }
 
+/* マイページ内投稿一覧テーブル */
 .table-u {
   min-height: 20em;
   width: 100%;
@@ -196,6 +209,7 @@ footer {
   transform: translateY(-1px);
 }
 
+/* グループ機能テーブル */
 .table-group {
   table-layout: fixed;
   width: 100%;
@@ -241,11 +255,13 @@ footer {
   box-shadow: none;
 }
 
+/* 通知一覧 */
 .notification-list {
   list-style-type: none;
   padding: 0;
 }
 
+/* 通知表示 */
 .notification-item {
   font-weight: bold;
   background: #ffe0e1;
@@ -255,10 +271,12 @@ footer {
   transition: background 0.3s ease;
 }
 
+/* 通知一覧文字 */
 .notification-text {
   color: rgb(0, 128, 255);
 }
 
+/* 通知ベル */
 .fa-bell {
   color: gray; /* 通常は灰色 */
   position: relative;
@@ -266,14 +284,14 @@ footer {
 }
 
 .fa-bell.bell-notified {
-  color: yellow;
+  color: yellow; /* 通知があると黄色 */
 }
-
+黄
 .genre-text {
   color: rgb(105, 105, 105);
 }
 
-
+/* ゲストログインボタン */
 .btn-guest {
 	display: block;
 	text-align: center;
@@ -310,7 +328,22 @@ footer {
 }
 
 .text-red {
-  color: #b7282e; /* 色を赤にする */
+  color: #b7282e;
+}
+
+/* エラーメッセージ設定 */
+.error-messages {
+  max-width: 100%;
+  margin-left: 2em;
+}
+
+ /* DM一覧名前表示 */
+.message-name {
+  display: inline-block;
+  max-width: 120px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 @media (max-width: 768px) {
