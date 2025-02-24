@@ -10,9 +10,11 @@
 
     <div class="col-md-8 offset-md-1 mt-5 align-items-center">
       <h3 class="text-user text-center">Search results by Genre</h3>
-      <table class="table mt-5">
-        <%= render 'public/posts/list', posts: @posts %>
-      </table>
+      <div class="table-responsive">
+        <table class="table mt-5">
+          <%= render 'public/posts/list', posts: @posts %>
+        </table>
+      </div>
       <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
     </div>
   </div>

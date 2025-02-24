@@ -11,9 +11,11 @@
       <div class="col-md-5 col-lg-4 col-xl-2">
         <h3 class="text-user">What's new?</h3>
       </div>
-      <table class="table mt-3">
-        <%= render 'list', posts: @posts %>
-      </table>
+      <div class="table-responsive">
+        <table class="table mt-3">
+          <%= render 'list', posts: @posts %>
+        </table>
+      </div>
       <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
     </div>
   </div>

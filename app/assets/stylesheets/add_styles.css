@@ -5,6 +5,26 @@
   color: #6c6b6b;
 }
 
+h4, h5 {
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#comments {
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.message-container .message-style {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 /* ヘッダー色 */
 header {
   background-color: #b7282e;
@@ -73,7 +93,8 @@ footer {
 .my-table {
   border-collapse: collapse;
   width: 100%;
-  max-width: 700px;
+  table-layout: fixed;
+  min-width: 10em;
 }
 
 .my-table th, .my-table td {
@@ -86,13 +107,14 @@ footer {
 .my-table th {
   background-color: #ca676c;
   color: #fff;
-  text-align: center;
   width: 20%;
   min-width: 3em;
 }
 
 .my-table td {
-  min-width: 10em;
+  width: 29%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* マイページ編集、退会ボタン設定 */
@@ -122,6 +144,10 @@ footer {
 
 .table-u {
   min-height: 20em;
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 /* 検索ボタン色 */
