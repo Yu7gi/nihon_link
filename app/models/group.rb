@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   has_many :permits, dependent: :destroy
 
   validates :name, presence: true, length: {maximum:35}
-  validates :introduction, presence: true, length: {maximum:250}
+  validates :introduction, presence: true, length: {maximum:235}
 
   #オーナー設定
   def is_owned_by?(user)
