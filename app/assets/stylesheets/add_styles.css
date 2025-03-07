@@ -37,19 +37,19 @@ h4, h5 {
 
 /* ヘッダー色 */
 header {
-  background-color: #b7282e;
+  background-color: #94282d;
 }
 
 /* ヘッダー上ボタン色 */
 .btn-h {
-  background-color: #b7282e;
+  background-color: #94282d;
   color: #fbfaf5;
 }
 
 /* ヘッダーボタンホバー時 */
 .btn-h:hover {
   background-color: #fbfaf5;
-  color: #b7282e;
+  color: #94282d;
 }
 
 /* ボディ背景色 */
@@ -57,9 +57,25 @@ body{
   background-color: #fbfaf5;
 }
 
+/* Topページ横幅設定 */
+.top-container {
+  padding: 0;
+}
+
+.top-container .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Top画像横幅調整 */
+.bg-image img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* フッター設定 */
 footer {
-  background-color: #b7282e;
+  background-color: #94282d;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -81,7 +97,7 @@ footer {
 /* 新規登録、ログインボタン装飾 */
 .btn-user {
   color: #fff;
-  background: #b7282e;
+  background: #94282d;
   border-radius: 100vh;
   width: 20em;
 }
@@ -96,7 +112,7 @@ footer {
 }
 
 .link-user:hover {
-  color: #b7282e;
+  color: #94282d;
 }
 
 /* マイページテーブル設定 */
@@ -166,7 +182,7 @@ footer {
 /* 検索ボタン色 */
 .btn-search {
   border: 2px solid #fbfaf5;
-  background-color: #b7282e;
+  background-color: #94282d;
 }
 
 .search {
@@ -301,8 +317,8 @@ footer {
 	margin: auto;
 	padding: 1rem 4rem;
 	font-weight: bold;
-	color: #b7282e;
-	background: #ffcece;
+	color: #94282d;
+	background: #eca8a8;
 	transition: 0.3s ease-in-out;
 }
 
@@ -313,12 +329,12 @@ footer {
   left: -5px;
   width: calc(100% - 4px);
   height: calc(100% - 4px);
-  border: 2px solid #b7282e;
+  border: 2px solid #94282d;
   transition: 0.2s;
 }
 
 .btn-guest:hover {
-	background: #b7282e;
+	background: #94282d;
 	color: #fbfaf5;
 }
 
@@ -328,13 +344,19 @@ footer {
 }
 
 .text-red {
-  color: #b7282e;
+  color: #94282d;
 }
 
 /* エラーメッセージ設定 */
 .error-messages {
   max-width: 100%;
   margin-left: 2em;
+}
+
+/* フラッシュメッセージがないときは空間を消す */
+.notice:empty,
+.alert:empty {
+  display: none;
 }
 
  /* DM一覧名前表示 */
