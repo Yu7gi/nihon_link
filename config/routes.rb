@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       resource :permits, only: [:create, :destroy]
     end
     resources :messages, only: [:show, :index, :create, :destroy]
-    resources :notifications, only: [:index] do
+    resources :notifications, only: [:index, :destroy] do
       collection do
         delete 'destroy_all'
       end
