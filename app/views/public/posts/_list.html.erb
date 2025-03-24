@@ -17,5 +17,6 @@
       <% end %>
     </td>
     <td class="col-2 pt-5"><i class="fa-regular fa-flag"></i>　<%= post.genre ? post.genre.name : "No genre" %></td>
+    <td class="pt-5 text-black-50 align-items-end d-flex justify-content-end align-self-end small "><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
   </tr>
 <% end %>
