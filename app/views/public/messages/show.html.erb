@@ -10,7 +10,7 @@
           <%= render "message", message: message %>
         <% else %>
           <div class="row">
-            <div class="col-lg-1">
+            <div class="col-md-1">
               <%= link_to user_path(@user.id) do %>
                 <% if @user.profile_image.attached? %>
                   <%= image_tag url_for(@user.profile_image), size: "60x60" %>
@@ -19,9 +19,10 @@
                 <% end %>
               <% end %>
             </div>
-            <div class="col-lg-4">
+            <div class="col-md-4 col-7">
               <div class="ml-1 mt-1 message-style" style="background-color: #ffd3d1; padding: 5px; border-radius: 10px;">
                 <%= simple_format(message.message, {}, wrapper_tag: "div") %>
+                <p class="text-black-50 d-flex justify-content-end align-self-end mb-0 small"><<%= message.created_at.strftime('%Y/%m/%d %H:%M') %>></p>
               </div>
             </div>
           </div>
