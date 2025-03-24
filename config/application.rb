@@ -26,6 +26,7 @@ module NihonLink
       guest_user.posts.each { |post| post.destroy } if guest_user.posts.any?
       guest_user.comments.each { |comment| comment.destroy } if guest_user.comments.any?
     end
+    config.time_zone = 'Tokyo'
   end
 end
 

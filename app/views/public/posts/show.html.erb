@@ -5,6 +5,7 @@
       <div class="mt-5 col-3 text-center">
         <h2 class="text-user text-title">Title</h2><br>
       </div>
+
       <div class="col-10">
         <h4 class="border-bottom pb-2"><%= @post.title %></h4>
 
@@ -24,6 +25,10 @@
               <%= link_to "Delete", post_path(@post), class: "btn btn-danger", method: :delete, "data-confirm" => "Are you sure you want to permanently delete this post?" %>
             <% end %>
           </div>
+        </div>
+
+        <div class="row">
+          <p class="ml-3 text-black-50 small">Posted_at : <%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
         </div>
 
         <div class="row d-flex justify-content-center">
